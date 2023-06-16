@@ -1,0 +1,296 @@
+::: SCM GIT COMMANDS :::
+
+1) Set up a username for your repository
+--> Syntax:  git config --global user.name “username”
+	EXAMPLE: git config --global user.name "shaikshoaib"
+	
+2) Set up user-email for your repository
+--> Syntax:  git config --global user.email “useremail@gmail.com”
+	EXAMPLE: git config --global user.email “786shaikshoaib@gmail.com”
+	
+	
+	( above both are 1 time execution/ initilization)
+
+:: Select or create the directory where you want to initialize Git.
+
+3) Initialize Git in the directory
+--> Syntax:  git init      ( used to initilize a fresh local git repository & create a default master branch)
+	EXAMPLE: CREATE A DIRECTORY ---> GET IN TO DIRECTORY ---> git init.
+			 $ mkdir demogit 
+			 $ cd demogit
+			 $ git init
+			 ( initialized empty git repository)
+
+4) To add a file to the staging area
+--> Syntax:  git add <filename>    (adds the files to git staging area so that git can track the changes )
+	EXAMPLE: git add demo.java
+			 git add .				(add all the files to staging area at a time)
+	(create demo.java file and save it in git_repo - demogit ----> then execute git add demo.java)
+
+
+5) To check the working tree status
+--> Syntax:  git status       (to check the changes made)
+	EXAMPLE: git status ----> ( "on branch master", no commit yet or changes to be commited or working tree clean" are shown)
+	
+	
+6) To commit the staged files to your local repository:
+--> Syntax:  git commit -m "commit message"    (saves the files to git repository permanently & genereates a commit id)
+	EXAMPLE: git commit ( will move the file from staging area to --> local repository )
+			 git commit -m "commit_message written here"
+			 git commit -a -m ‘message’  (To stage and commit multiple files at once) 
+
+7) The git diff command displays all the changes made to the tracked files
+--> Syntax:  git diff 
+	EXAMPLE: git diff                     (Track the changes between UNTRACKED FILE & COMMIT FILE)
+			 git diff --cached   		  (Track the changes that have staged but not committed)
+			 git diff --staged            ()
+			 git diff --nameonly --cached (Track the changes that have staged but not committed)
+			 git diff HEAD				  (track the changes after commiting a file )
+			 git diff<commit id 1> <commit id 2> ( difference between two commit id's)
+			 
+			 
+8) The git rm command to remove the files
+
+--> Syntax: git rm <filename>  (To delete the file from the git repository as well as users system)
+    EXAMPLE: git rm demo.java
+
+--> Syntax: git rm --cached <filename> (To remove the file from the git repository but not from the system, we use the --cached <filename>)
+	EXAMPLE: git rm --cached demo.java
+	
+--> Syntax: git rm -f <filename> (To force remove a staged file by using the –f flag)
+	EXAMPLE: git rm -f demo.java
+	
+	
+9) Git Ignore: (helps to ignore the file if don't want to track/ version control)
+--> Syntax: gedit .gitignore	(Create a gitignore file inside the git repo)
+	EXAMPLE: gedit .gitignore ( write all the )
+				touch .gitignore ( creates a .gitignore file )
+				vi .gitignore ( opens the file for editing and enter below file extensions which need to be ignored)
+				logs/ ( completely ignore the direcotry & content inside )
+				*.class ( completely ignores files ending with .class in the reposiotry )
+				*.txt ( comletely ignores files ending with .txt in the reposiotry )
+				save & close the file.
+
+
+10) Git Log: (check all the commits made so far & who commited at what time etc...)
+--> Syntax: git log		(shows all the commits made to project so far)
+-->         git log --oneline ( will show all the commits in short form )
+-->			git log <commit id> (Display the specific commit log files)
+-->			git log --stat ( displays the number of insertions and deletions to each file altered by each commit (note that modifying a line is represented as 1 insertion and 1 deletion))
+-->			git log -3 (displays recent 3 commit)
+-->			git log --oneline -3 (display oneline recent 3 commit)
+			enter "q"--> to come out of log files.
+			
+			
+			
+11) Git Amend: (Git amend can be used to make changes to the last commit message)
+--> Syntax:  git commit --amend -m "message" (create new commit id along with new message)
+	EXAMPLE: git commit --amend -m "New message" 
+			 git show <commit_id>
+
+
+======================================================================================================================
+
+To add Remote repository to local use git add remote followed by remote link
+Syntax: git add remote origin <remote link>
+EXAMPLE: git add remote origin https://github.com/shaikshoaib190998/demorepo
+
+To list all the remotes repositories attached to your Local repository
+Syntax: git remote -v
+EXAMPLE: git remote -v
+
+Pull
+
+The git pull command fetches changes from a remote repository to a local repository. It merges upstream changes in your local repository, 
+git pull origin master
+
+This command will copy all the files from the master branch of remote repository to your local repository.
+One can also try pulling files from a different branch using the following command:
+
+git pull origin <branch-name>
+
+git pull origin main --allow-unrelated-histories ( if their is error fatal: refusing to merge unrelated histories )
+
+
+
+Push
+
+To push Local repository to remote repository, use the push command
+Syntax: git push origin master
+
+This command transfers commits from your local repository to your remote repository. It is the opposite of pull operation.
+
+Pulling imports commits to local repositories whereas pushing exports commits to the remote repositories .
+
+The use of git push is to publish your local changes to a central repository. After you’ve accumulated several local commits and are ready to share them with the rest of the team, you can then push them to the central repository by using the following command:
+
+git push <remote> 
+
+Note : This remote refers to the remote repository which had been set before using the pull command.
+
+This pushes the changes from the local repository to the remote repository along with all the necessary commits and internal objects. This creates a local branch in the destination repository.
+git push origin master
+
+Pull copies all the changes from remote to the local repository
+▪ It then merges the changes with the present working directory
+Syntax: git pull origin
+
+merging with ancestor or parent branches from a child branch.
+
+To enable such merge, use the command below:
+
+git push <remote> --force
+
+
+Fetch
+ command copies the changes from remote to the local repository
+Syntax: git fetch origin
+▪ Fetch does not affect the present working directory
+
+Revert 
+	revert or undo the chnages made in the previous commit.
+	new commit is created without the chnages made in the other commit.
+	syntax:: git revert <commit id>
+	old commit still resides in the history.
+
+
+git reset :::  
+	Reset command can be used to undo chnages at different levels
+	syntax:: git reset <modifier> <commit id>
+	modifiers :: --hard, --soft, --mixed are used to decide the degree to reset.
+	unstaged chnages after reset.
+ local repo level 
+	
+		--soft   --> Just go back to prev. commit point, retains the changes in staging area & Working Dir.
+		--mixed	 --> Just go back to prev. commit point, changes will be removed from staging area, but will be thr in working Dir.
+		--hard	 --> Just go back to prev. commit point, permanently remove the changes from stagin area & Working Dir.
+		
+	reset :: will just remove the commit id
+	
+	
+=====================================================================================================================================
+
+Working on Branches :
+A project in development could take multiple different paths to achieve its goal. branching helps us take these different directions, test them out and in the end achieve the required goal.
+Branches in Git are nothing but pointers to a specific commit. Git generally prefers to keep its branches as lightweight as possible.
+There are basically two types of branches viz. local branches and remote tracking branches.
+
+-> All development is done as features on seperate branches
+master branch remains untouched unless all agree. 
+master branch never gets incomplete or broken code.
+in addition to feature branch,seperate branches are present as per project like bugfixes, maintenance, development,testing, hotfix.
+
+
+The master branch is a default branch in Git. It is instantiated when first commit made on the project.
+git branch  <branch name>  ( to create a new branch)
+git branch --list  			(to see list of branches)
+git branch -d <branch name>  ( to delete the branch)
+git checkout <branch name>  (to get in to the branch created)
+git checkout -b <branch_name>	(to create branch and checkout at sametime)
+git branch -m <old branch name><new branch name>  (to modify old branch name to new branch name)
+git switch <branch name>	(to switch in to the respective branch)
+git merge <branch name>	(being in the desination/ master brach the command need to be executed---->  to merge the fellow branch with master/destination branch)
+						the branch name in the above command should be the branch you want to merge into the branch you are currently checking out. So, make 
+						sure that you are checked out in the destination branch.
+
+Merge 
+Merge-Conflict
+Resolve Merge-Conflict
+--> rebase 
+	This is also a way of combining the work between different branches. Rebasing takes a set of commits, copies them and stores them outside your repository.
+	The advantage of rebasing is that it can be used to make linear sequence of commits. The commit log or history of the repository stays clean if rebasing is done.
+
+--> squash
+===================================================================================================================
+::: MERGE, REBASE :::
+
+MERGING IN GIT : Merging integrates the changes made in different branches in to one single branch.
+				 All the chnages made in feature branch after merging are available in merged branch MASTER.
+				 feature branch become redunt after merging, hence itcan be deleted.
+				 
+				 
+Merge-Conflicts :::
+				 Merge conflicts arise when two files having same content modfified are merged.
+				 merge conflicts can occur on merging branches or when merging forked history together.
+				 
+RESOLVING THE MERGE CONFLICTS :::
+				Merge conflictsare resolved manually by users.
+				Git provides different merge tools to compare and choose the required changes.
+				User can also use thired party merge-tools with git.
+				
+
+REBASE::: branch rebasing :::
+				Git rebasing is used, when chnages made in one branch needs to be refelected in another branch.
+		SYNTAX:: git rebase <rebase branch name> (name of branch which you want to rebase)
+				
+scenario: Understanding merge & rebase ( merge & rebase both are used to combine the changes from one branch into another )
+
+lets assume we have two branches master & feature with some commits we want to merge one into another
+assuming master has two commits c1 & c2, then we created a new branch feature, so here the feature is created with c1 & c2 and we call c2 as the base for feature branch now.
+master c1 c2
+feature c1 c2
+assume we started working on feature branch and create some commits f1 & f2 - mean while someone else also started working on master branch and created a commit c3. it will look like below now
+master c1 c2 c3
+feature c2 f1 f2
+so what are the differnt ways to merge these two branches & what would be the results. lets try to understand
+case1: merge changes with -- git merge
+git merge feature ( we should be in master branch while running this command ). once we issue this is how the git log history looks like at master
+master c1 c2 c3 f1 f2 mc
+feature c1 c2 f1 f2
+so this would add / forward all commit id from feature branch into master along with a brand new commit id called merge commit (mc above)
+this mc does not have any significance in history making some ambiguity those who look at the commit history.
+case 2: merge changes using -- git rebase
+dev c1 c2 c3
+feature c2 f1 f2
+swith to feature branch and do "git rebase master", which would result as below
+dev c1 c2 c3
+feature c1 c2 c3 f1 f2 ( it changes feature branch base to match last commit id of master )
+switch back to master (git checkout master) & do "git rebase/merge feature" , which would result as below.
+dev c1 c2 c3 f1 f2
+feature c1 c2 c3 f1 f2
+dev c1 c2 c3 f1 f2
+feature c1 c2 c3 f1 f2
+making both branches with clean history of commits.
+case 3: merge changes with -- git merge --squash /// git merge feature (ff)
+git merge --squash feature ( we should be in master branch while running this command ). once we issue this is how the git log history looks like at master
+git merge feature (ff)
+master c1 c2 c3 f1 f2 mc
+feature c1 c2 f1 f2
+git rebase master
+master c1 c2 c3 f1 f2
+feature c1 c2 c3 f1 f2
+git merge --squash feature
+git commit -m "combined all commits from feature"
+master c1 c2 c3 mc
+feature c1 c2 f1 f2
+this case it will combine all the commit ids from feature branch & creates a brand new commit id at master with all changes combined from feature.
+squash
+before merge ---> git rebase -i HEAD~4
+or while merging ---> git merge --squash feature
+git cherry-pick <commit id> # from target branch.
+consider :::
+feature1 ===> cm1,2,3,4,5,6,7
+git log --oneline
+on master branch :
+git merge feature1
+git cherry-pick 7043a97
+==========================================================================================================================================================
+Git Stashing:::
+
+	 Git stashing is way of creating a checkpoint for non committed changes. it saves all the changes to a temporary location so the user can perform other task such as 
+	 Switching Branches, reverting etc. these chnages can be then reapplied anywhere.
+	 
+::: Stash uncommitted changes :::
+When we want to undo adding a feature or any kind of added data temporarily, we can “stash” them temporarily.
+
+Use the command:
+
+git status
+
+git stash
+
+git status
+
+And when you want to re-apply the changes you “stash”ed ,use the command:
+
+git stash apply

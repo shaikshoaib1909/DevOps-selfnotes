@@ -1,0 +1,196 @@
+
+--> WHY WE NEED VERSION CONTROL? --> COLLABORATION, STORING VERSIONS, BACKUP, FIGURE OUT WHAT HAPPEND. 
+
+SOLUTION OF ABOVE PROBLEM ---> VERSION CONTROL
+
+version control helps the teams to solve above problems, by tracking every individual changes by each
+
+::: problems not using version control :::
+--> once saved, all changes maded in the file are permanent.
+--> cannot revert back.
+--> no record of what was done and by whom.
+--> downtime can occur because of faulty update could cost million dollars loss.
+
+
+::: VERSION CONTROL :::
+--> versioning helps track the changes, it assigns unique version number, tags, commit-id .
+--> Version control is a system that documents changes made to a file or set of files.
+	it allows multiple  users to manage multiple revisions of the same unit of information.
+	it is a snapshort of your project over time.
+	
+example: each and every microservice ( sign-in. java)
+		 developer 1--> 10lines of code---> assigns version number ----> v1.0
+		 developer 2--> 10+20 lines sof code---> assigns version number ----> v1.1
+		 developer 3--> 30+ lines of code---> assigns version number ----> v1.2
+
+assigning version number/ commit-id for every commit made in sourcecode.
+records the changes made to the file.
+can revert back the changes maded in to the file.
+( if version v1.2 has problem/issue/breakdown, can revert back to the version v1.1 without any hazzel)
+
+::: VERSION CONTROL TYPES ::: (lvc,cvc,dvc)
+--> LOCAL VERSION CONTROL (LVC):::
+	Having the version database in the local computer
+	local database keeps a record of the changes made to files in version database.
+	limitation/ issue --> multiple people paralley working on same project
+	
+--> CENTRALISED VERSION CONTROL(CVC):::
+	A central repository (central server) is maintained where all the versioned files are kept.
+	users can check-in, checkout from files from different computers at any time.
+	limitation/issue --> in case of central server failure whole system goes down.
+	
+--> DISTRIBUTED VERSION CONTROL SYSTEM(dvc):::
+	version database is stroed at every users local system and at the remote server.
+	users manipulate the local files and then upload the changes to the remote server
+	if any of the servers die, a client server can be used to restore.
+	
+	
+											VERSION DATABASE IN LOCAL MACHINE 1
+REPLICA OF REMOTE <<---     REMOTE SERVER ----------|
+SERVER IS PRESENT							VERSION DATABASE IN LOCAL MACHINE 2
+	
+	
+	
+::::::::::: GIT GIT GIT GIT :::::::::::
+ WHY GIT ?
+	  SNAPSHORTS
+	  FAST OPERATIONS
+	  DISTRIBUTED
+	  BRANCH HANDLING
+	  INTEGRITY
+	  ROBUST
+	  
+	  
+::: GIT::: 
+--> GIT IS AN OPEN-SOURCE DISTRIBUTED VERSION CONTROL SYSTEM WHICH RECORDS CHANGES MADE TO THE FILES
+	LAYING EMPHASIS ON SPEED, DATA INTEGRITY, DISTRIBUTED,NON-LINEAR WORKFLOW
+--> A GIT REPOSITORY IS THE DIRECTORY WHERE ALL OF YOUR PROJECT FILES AND THE RELATED METADATA RESIDES.
+	GIT RECORDS THE CURRENT STATE OF THE PROJECT BY CREATING A TREE GRAPH FROM THE INDEX. IT IS USUALLY IN THE FORM OF A DIRECTED ACYCLIC GRAPH (DAG)
+--> USE GIT WORKFLOW TO MANAGE YOUR PROJECT EFFECTIVELY,
+--> WORKING WITH SET OF GUIDELINES INCREASES GIT'S CONSISTENCY, PRODUCTIVITY.
+=================================================================================================
+::: HOW GIT WORKS ::: 
+
+--> Create a “repository” (project) with a git hosting tool (like Bitbucket)
+--> Copy (or clone) the repository to your local machine.
+--> Add a file to your local repo and “commit” (save) the changes.
+--> “Push” your changes to your master branch.
+--> Make a change to your file with a git hosting tool and commit.
+--> “Pull” the changes to your local machine.
+--> Create a “branch” (version), make a change, commit the change.
+--> Open a “pull request”.
+--> “Merge” your branch to the master branch.
+================================================================================================
+::: BASIC OPERATIONS IN GIT ARE :::
+
+--> Initialize
+--> Add
+--> Commit
+--> Pull
+--> Push
+
+::: ADVANCED GIT OPERATIONS ARE :::
+
+--> Branching
+--> Merging
+--> Rebasing
+
+================================================================================================
+::: Install Git On Windows :::
+
+This is how you install and setup GIT on Windows.
+
+Step 1:
+
+To download the latest version of Git --> link --> https://git-scm.com/downloads
+Download Git for Windows.
+
+Step 2:
+
+Run the .exe file in your system and agree to the license.
+
+Step 3:
+
+You will find a window prompt to select components to be installed.
+Windows Select Component, selection of your desired components, click on Next>.
+
+Step 4:
+
+Adjusting Path Environment.
+Choose the adjustment of your path environment( This is where you decide how do you want to use Git).
+You can select any of the three options according to your needs. But for beginners, I recommend using Use Git From Git Bash Only.
+
+Step 5:
+Windows Configuring Extra Features.
+choose features for your Git. You get three options and you can choose any of them, all of them or none of them as per your needs.
+The first is the option to Enable file system caching.
+The second option is to enable Git Credential Manager.
+The third option is to Enable symbolic links.
+I have selected the first two features only.
+
+Step 6:
+
+Choose your terminal.
+You can choose one from the options.
+The default terminal of MYSYS2 Or window’s default console window (cmd.exe).
+selected MYSYS2.
+
+Step 7:
+
+Windows Finishing Git Installation.
+Select Launch Git Bash and click on Finish.
+This will launch Git Bash on your screen.
+
+Step 8: 
+
+configuring Git with your username and email.
+Git Bash Terminal opens.
+proceed with configuring Git with your username and email. enter command.
+
+git config -- global user.name "<your name>"   ---> git config --global user.name "shaikshoaib"
+
+git config -- global user.email "<your email>" ---> git config --global user.email "786shaikshoaib@gmail.com"
+
+It is important to configure your Git because any commits that you make are associated with your configuration details.
+
+If you want to view all your configuration details, use ---> git config --list
+
+
+
+
+================================================================================================
+
+:::: VERSION CONTROL WITH GIT ::::
+
+--> Sign-up at github.com <-- 
+▪ Click on New repository to create a new repository.
+▪ Under Repository name, give a name to your repository.
+▪ Give some Description about your repository under the Description section.
+▪ For a free repository, choose public.
+▪ Finally, click on Create Repository.
+
+
+To add Remote repository to local use git add remote followed by remote link
+--> Syntax:  git add remote origin <remote link>
+	EXAMPLE: git add remote origin https://github.com/shaikshoaib190998/demorepo.git
+	
+
+To push Local repository to remote repository, use the push command
+Syntax: git push origin master
+
+Tags can be pushed, viewed, and shared on Remote
+Syntax: git push origin --tags
+
+The changes can be seen in the Remote repository
+Files can be created and edited on remote
+These files can then be committed on the remote
+
+To list all the remotes attached to your Local repository
+Syntax: git remote -v
+
+Fetch command copies the changes from remote to the local repository, Fetch does not affect the present working directory 
+Syntax: git fetch origin
+
+
+Pull copies all the changes from remote to the local repository, It then merges the changes with the present working directory
+Syntax: git pull origin 
