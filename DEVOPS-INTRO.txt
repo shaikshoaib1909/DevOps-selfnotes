@@ -1,0 +1,306 @@
+::: DEVOPS ::::
+
+	- TRADITIONAL WATERFALL MODEL					
+		>-Requirment & gathering analysis			
+			>- Design								
+				>- Implement							
+					>- Test							
+						>- Deploy					
+							>-Maintenance
+							
+---> new phase in development beings only if the previous phase is completed.
+---> huge waiting time for code deployment.
+---> difficult to maintian UPTIME of production environment.
+
+
+Limitiations:::  high amount of risk and uncertainty
+				not good model for complex and object oriented projects
+				no working sofware is produced until late during the life cycle.
+				not suitable for the projects where requirements/ modifications changes are at high risk .
+				
+							
+							
+::: AGILE METHODOLOGY :::
+				
+	Each project is broken up in to several " iterations ".
+	All iterations should be of same time/duration (2 to 8 weeks).
+	At end of each iteration a working software should be delivered.
+		
+	>-Requirment & gathering analysis		    >-Requirment & gathering analysis	
+	>- Design									>- Design
+	>- Implement								>- Implement
+	>- Test										>- Test							
+	>- Deploy									>- Deploy
+	
+	ITERATION 1									ITERATION 2
+	
+	>-Maintenance		
+	
+	
+	- LIMITATIONS
+		Wants changes, wants stability in between develop team and operation team
+		Release and deploy mismatch.
+		unpredictable issues
+		blame game
+		lack of monitoring and feedback.
+		
+		
+		
+::: DEVELOPMENT WITHOUT DEVOPS ::: 							::: DEVELOPMENT WITH DEVOPS :::
+
+	- Release and deploy mismatch.								- Stremlined Deliveries
+	- unpredictable issues. 									- Team work in collaboration
+	- blame game.												- Continious Monitorning and Feedback
+	- lack of monitoring and feedback.
+	
+
+::::::::::: DEVOPS IN REAL LIFE :::::::::::
+
+DEVOPS IS NOT A ROLE, PERSON, ORGANIZATION
+DEVOPS IS NOT A SEPERATE TEAM
+DEVOPS IS NOT A PRODUCT OR A TOOL
+DEVOPS IS NOT ABOUT JUST WRITING SCRIPTS OR IMPLEMENTING TOOLS
+
+	>-- PLAN					<<<<<<----------------------|
+		>-- CODE											|
+			>-- BUILD										|
+				>-- TEST									|
+				development team							|
+				------------------							|
+				  operation team							|
+					>-- RELEASE 							|	
+						>-- DEPLOY 							|
+							>-- OPERATE						|
+								>-- Monitor					|
+									>>>>>>------------------|
+
+
+
+:::::: WHAT IS DEVOPS ::::::
+_____________________________
+
+The term DevOps is a combination of two words, namely Development and Operations. 
+DevOps is a practice that allows a single team to manage the entire application development life cycle: development, testing, deployment, and monitoring.
+
+The ultimate goal of DevOps is to decrease the duration of the system’s development life cycle while delivering features, fixes, and 
+updates frequently in close synchronization with business objectives.
+ 
+ --- Integrate developers and operations teams.
+ --- improves collaboration and productivity by:
+		: Automating Infrastucture.
+		: Automating Workflows.
+		: Continously Measuring Application Performance.
+		
+BENEFITS::: ---- Cost Avoidance.
+			---- Flexibility
+			---- Accelerated Innovation
+			---- Agility & Speed
+			---- IT Efficiency
+ 
+ SKILLS REQUIRED FOR A DEVOPS ENGIEER
+ 
+TOOLS::: ---- VERSION CONTROL -- GIT
+		 ---- CONTINUOUS INTEGRATION -- JENKINS
+		 ---- VIRTUALIZATION/CONTAINERIZATION -- DOCKER / KUBERNETES
+		 ---- CONFIGURATION MANAGEMENT -- PUPPET / ANSIBLE
+		 ---- MONITORING -- NAGIOS
+		 
+NETWORKING::: ---- ESTABLISH CONNECTION BETWEEN THE CONATAINERS/PORT FORWARDING/ CONTAINER ORCHESTRATION
+
+
+::: DevOps Architecture :::
+:::: Different phases of DevOps architecture::::
+
+PLAN – 	In DevOps planning plays an important role. In this stage, all the requirements of the project and everything regarding the project 
+		like time for each stage, cost. etc are discussed. This will help everyone in teams to get a brief idea about the project. 
+		
+CODE – 	In this Stage the code is written over here according to the client’s requirements. Here the code is divided into small codes called Units.
+		This is done to get a clear picture of the code. Some of the examples of the tools used are Git, JIRA
+
+BUILD – In this stage Building of the units is done. Some of the examples of the tools used are maven, Gradle.
+
+TEST – 	Testing of all units is done in this stage. So we will get to know where exactly the code is having bugs and if there are mistakes found it is returned. 
+		Some of the examples of the tools used are Selenium, PYtest
+
+INTEGRATE – In this stage, all the units of the codes are integrated. That means in this step we will be creating a connection between the development team and
+			the operation team to implement Continuous Integration and Continuous Deployment. An example of the tool used is Jenkins. 
+			
+DEPLOY – In this stage, the code is deployed on the client’s environment. Some of the examples of the tools used are AWS, Docker.
+
+OPERATE – Operations are performed on the code if required. Some of the examples of the tools used are Kubernetes, open shift.
+
+MONITOR– In this stage monitoring of the application is done over here in the client’s environment. Some of the examples of the tools used are Nagios, elastic stack.
+
+
+
+
+:::::: DEVOPS LIFE CYCLE ::::::
+
+:: PLAN :: 
+			Plan, track, visualize and summarize your project.
+	TOOLS--> JIRA, TRELLO, TRICENTIS.
+	
+:: CODE :: Developers write their code.
+	TOOLS--> ECLIPSE, GIT.
+	
+:: BUILD :: Pre-Release Version, identified by a build number 
+	TOOLS--> APACHE ANT, JENKINS,MAVEN, GRADLE.
+
+:: TEST :: Automated tests as part of software pipeline in order to obtain feedback
+		   feedback on business risks with a software release.
+	TOOLS--> APACHE J METER, J UNIT, SELINIUM.
+	
+:: RELEASE :: Integrate code in to shared Repository.
+			  udetect, locate errors quickly and easily.
+	TOOLS--> TRAVIS CI, GIT LAB, BAMBOO, GIT HUB.
+	
+:: DEPLOY :: Manage and maintain development and deployment
+			 deployment of software systems and servers in any computational environment.
+			 
+	TOOLS--> AWS, CHEF, ANSIBLE.
+	
+:: OPERATE :: Keep the system updated with the latest updated
+	TOOLS--> AWS, CHEF, ANSIBLE.
+	
+:: MONIOTR :: Ensure application is performingas desired and the environment is stable.
+			  Determines when a service is unavailable and understand the underlying causes.
+	TOOLS--> Nagios, Splunk, SENSU, PROMETHEUS, GRAFANA.
+	
+	
+	
+	
+:::::::: DEVOPS STAGES ::::::::
+
+	VERSION CONTROL/ S C M --> CONTINUOUS TESTING --> CONTINUOUS DEPLOYMENT --> CONTINUOUS MONITORING. 
+		|														|							|
+		|														|							|
+		|										        CONTAINERIZATION					|
+		|												VIRTUALIZATION						|
+		|														|							|
+		|														|							|
+		|												CONFIGURATION						|
+		|												MANAGEMENT							|
+		|																					|
+		|																					|
+		|																					|
+FEEDBACK <<<---------------------------------------------------------------------------------
+
+::: TOOLS:::	---- VERSION CONTROL -- GIT :::
+					system that records changes to documents, computer programs, large websites and other collection of information over time.
+					decentralised version control, centralised version control, 
+				---- CONTINUOUS INTEGRATION -- JENKINS
+				
+				---- VIRTUALIZATION/CONTAINERIZATION -- DOCKER / KUBERNETES
+				---- CONFIGURATION MANAGEMENT -- PUPPET / ANSIBLE
+				---- MONITORING -- NAGIOS
+				
+1)-- DevOps tools for continuous development (CD):::
+
+Continuous development includes both the planning and coding of the program in the DevOps life cycle.
+ 1) Jira and 2) Git
+ 
+ Jira:::  Jira and other project management tools are frequently used in DevOps businesses.
+ Jira service desk ----------------------- Jira
+ 
+ (customer portal)						   (developers)
+ 
+	
+ Git:::	Git is an open-source version management program that is available to everyone at no cost. 
+		The source code of a program or piece of software is managed using version control systems.
+		Git is a great DevOps tool because it encourages programmer cooperation and nonlinear workflows. 
+		GitHub: a web-based hosting platform for Git code repositories.
+		
+2)-- DevOps tools for continuous integration (CI) and continuous delivery (CD):::
+
+Continuous integration in the DevOps pipeline necessitates developers to contribute changes (such as new features or bug patches) to the source code. 
+In this stage of development, Jenkins is one of the most used DevOps tools:
+
+Jenkins::: Jenkins is an open-source Java application. It can function solely as a continuous integration server or as a center for continuous delivery. 
+			Jenkins is renowned for a number of qualities, including a wide range of plugins and integrations, simple installation, 
+			the ability to effectively split work across numerous workstations for cross-platform development, and comprehensive workflow customization.
+			
+			CHECKOUT ----> BUILD ----> TEST ----> STAGING ----> PRODUCTION
+								^		|
+								|	 FIREFOX
+								|		|
+								|---- EDGE
+								
+								
+3)-- DevOps tools for continuous testing:::
+
+Continuous testing refer to a regular inspection of developed software for errors, and flaws. beneficial when using DevOps automation technologies. 
+Through functions like automated test execution and parallel testing across many codebases.
+most useful continuous testing tools are Selenium and Bamboo:
+						
+
+Selenium:::  open-source development tool. It is a framework for automated testing that enables the creation of test scripts in popular programming languages,
+ including Java, Python, and C#. It is typically used to automate online applications. Also use it to automate web-based administration chores.
+ Selenium’s offers automation assistance for a variety of browsers and operating systems.
+										
+				
+				Selenium test scripts ----> Test NG ----> Test Reports ---> jenkins
+	
+	
+Bamboo::: Bamboo is a DevOps tool that runs on servers. Users can make intricate build designs and set up automated start triggers for them. 
+Bamboo is well renowned for its parallel testing capabilities and close connection with Jira.
+	
+	
+				Task ---------> Branch -----------> Code Review ------------> Mearge & Test ----> Deploy
+				
+				(jir/other)   (Plastic scm)        (builtin code review)		(bamboo plugin)
+																			 ---------automated----------
+																			 
+																			 
+
+4)-- DevOps tools for continuous deployment :::
+
+The step of deploying code to the servers used for production is known as “continuous deployment”.
+enable quick and frequent deployments which occurs frequently. 
+Continuous deployment can benefit from both container management solutions and configuration management systems.
+
+Docker (Container management) ::: The Docker app allows a development team to manage and run distributed applications after they have been packaged. 
+Standardized packaging formats, close integration with GitHub, and Docker Hub are a few of the most important features of Docker.
+ By offering a platform for simple image publishing and access management, Docker Hub promotes communication amongst DevOps team members.
+ 
+ 
+GIT HUB ---------------------------> WEBHOOK NOTIFY CODE CHANGES ------------------------------> DOCKER
+
+1)push code to git hub repository    2)webhook notify changes of code                            3) build image in docker hub
+
+
+
+
+Ansible (configuration management)::: Ansible is an open-source automation software mostly utilized for infrastructure orchestration and configuration management.
+Its simplicity makes it simple for administrators, IT specialists, and developers to utilize. 
+Machine groups can be created with Ansible, and their operation in real-world settings can be managed.
+
+
+5)-- DevOps tools for continuous feedback :::
+
+A key element of the DevOps process is analyzing and implementing feedback. Continuous improvement is made possible by constant feedback. 
+Insights from both internal sources (such as employee surveys and bug reports) and external sources (such as support tickets or social media mentions) must be gathered. 
+To help your continuous feedback loops, there are a number of DevOps technologies available:
+
+Jira Service Management: The Jira platform includes a DevOps tool called Jira Service Management. 
+						 Its main objective is to improve communication by centralizing feedback from multiple sources. 
+						 Customers can use the widget, portal, email, or a customized help center to send service requests and feedback.
+
+
+Parlor: Parlor is a user relationship management application for collecting consumer feedback. 
+		To obtain contextual insights, it interacts with active users in real time.
+		
+		
+		
+6)-- DevOps tools for continuous monitoring :::
+
+Continuous monitoring of the application in the DevOps pipeline necessitates regular inspections for defects, system faults, performance problems, and 
+anything else that can have an impact on product quality. Both application and server monitoring should be supported by your DevOps monitoring tools.
+
+
+Prometheus: Prometheus is a performance monitoring database that is open-source and community-driven and was created to support continuous monitoring procedures.
+			It provides vast client libraries and powerful reporting tools to development and QA teams. 
+			 Prometheus includes several modes for data visualization, making it appropriate for DevOps as well.
+			 
+			 
+			 
+
