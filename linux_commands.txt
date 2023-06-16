@@ -1,0 +1,84 @@
+LINUX Syntax and Commands:::
+
+COMMANDS SYNTAX :::
+pwd		::--> to know the present working directory.
+clear	::--> to clear the terminal screen
+ctrl+l  ::-->(short cut option to clear)
+ls::--> list the content of the directory 
+cp <flag> {filename} /pathname/ ::--> copy file/directory and still their in working directory.
+	cp file1.text /home/shoaib/
+	 <flag>  --> modes 
+					:cp -i (interactive mode)
+					:cp -n (do not overwrite file)
+					:cp -u (updates destnation file only when source file is different)
+					:cp -r (copy hidden files also)
+					:cp -v (print informative message)
+					
+
+			  
+Sudo -i	::--> to login as root user.
+cd ~	::--> to get back to the root path. 
+cd..    ::--> to get back to previous directory from working directory. 
+cd <dir_name> ::--> to get in to the specific directory.
+cd /<dir_name>/<dir_name>/<dirname>/ ::--> to get in to the specific path.
+mkdir <dir_name> ::--> to make a directory(folders). 
+sudo -username ::-->
+
+
+
+
+
+COMMANDS EXAMPLE :::
+sudo -i 
+ls
+ls *.txt
+
+pwd 
+echo "text_here"
+clear 
+ctrl+l (short cut option to clear) 
+cd ~
+cd..
+cp file1.txt file2.txt
+mv file1.txt /home/commad/
+touch file3.txt
+echo "inner file details" >> file2.txt
+mkdir dir1
+rmdir dir2 ( removes the specified empty directory)
+rm file/directory name (remove file or directory with content as well)
+nl file1.txt (display file with line numbers)
+wc file2.txt (display number of line, words, characters in the file)
+uniq file3.txt ( dublicate of continious line will be deleted)
+cat file1.txt
+cat>file2.txt (ctrl+d to save and exit)
+cat file1.txt file2.txt>file3.txt (merge file1,2 to file3)
+vi file3.txt -- (i for insert, esc for exit cmd, :wq for save and quit, :q for direct quit.) 
+vim file4.txt
+head file1.txt ( display first 10 lines of the file)
+tail file1.txt ( display last 10 lines of the file)
+tac file4.txt ( display as cat but in reverse order bottom to up)
+more file3.txt (similar to scroll bar to display large content)
+id (display user id or group id)
+grep keyword file3.txt (pattern matching) 
+diff file1.txt file2.txt (shows different pattern in botht the file)
+ping google.com ( to check the connetivity of the server)
+history ( review all the commads executed till now from start of terminal)
+hostname (display host name)
+host -i ( display host ip)
+useradd user1
+user1 password: password1
+adduser user2 
+user2 password: password2
+groupadd group1
+group1 password: password123
+useradd user1 group1 
+
+chmod (to chnage the permissions of file or directory)
+chmod u=r file2.txt (gives only read permission)
+chmod u=w file2.txt (gives write permission )
+
+$ cp <flag> {filename} /pathname/
+
+
+
+

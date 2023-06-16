@@ -1,0 +1,196 @@
+LINUX self notes!!!
+linux introduction :::
+LINUX created by "Linus Torvalds" - Created linux kernal along with GUI tools --> linux operating system.
+Linux is an operating system means, an alternative to other operating systems( Windows, Mac OS, MS-DOS etc).
+Linux is an interface between computer/server hardware, and the programs which run on it.
+linux is an OPEN SOURCE O.S " modelled on UNIX and developed in c langage ". 
+
+Without a kernel, an operating system doesn't exist. Without programs, a kernel is useless.
+
+1969 & 1970 				1977 					1983 & 1986								1987				1991		
+
+UNIX O.S					BSD						STALLMAN								MINIX				LINUX 
+(KEN & DENN'S RITCHIE)		BREKELEY SOFTWARE 		GNU PROJECT FOR UNIX LIKE OS			SIMILAR TO UNIX		LINUX KERNEL WITH GNU TOOLS
+							DISTRIBUTION 			(FREE FOR COPY & MODIFY)				(COPY OF CODE)		LINUX O.S
+						   (CONTAINED UNIX CODE)
+						   
+______________________________________________________________________________________________________________________________________________
+
+::: Linux Flavours
+    - RHEL (Red Hat Enterprise Linux)
+    - CentOS
+    - Ubuntu
+    - Amazon Linux
+    - Fedora
+    - Linux Mint
+    - OpenSUSE
+
+______________________________________________________________________________________________________________________________________________
+components of linux:
+1: hardware                                         ^	app 		^
+2: kernel											|	shell		^ work's on top model
+3: shell											|	kernel		^							
+4: application										|	hardware	| 
+
+APP::: Aplication programs.( eg: gmail,ftp,etc)
+-> Users communicate with the kernel through a program known as the shell. 
+SHELL ::: The shell is a command line interpreter; (Takes user commands & sends it to kernel)
+		  EG: BASH, SH
+		  
+KERNEL::: The kernel is the heart of the operating system. 
+		  It interacts with the hardware and most of the tasks like memory management, task scheduling and file management.
+		  
+HARDWARE::: Hardware like CPU,RAM,HARD DISK DRIVE.
+
+______________________________________________________________________________________________________________________________________________
+
+::: File system hierarchy
+
+    - / - This is top level directory
+    - /root - It is home directory for root user
+    - /home - It is home directory for other users
+    - /boot - It contains bootable files for Linux
+    - /etc - It contains all configuration files
+    - /usr - by default softwares are installed in this directory
+    - /bin - contains binary executable, It contains commands used by all users
+    - /sbin - It contains commands used by only root user (root)
+	- /dev - device files, contains hardware device files
+	- /var - variable data files --- log files are located in /var
+	- /opt - an third party vendor applications/software installation
+	- /media - removalble media devices
+	- /mnt - used to mount a file system temporarily
+
+_______________________________________________________________________________________________________________________________________________
+:::ADVANTAGES OF LINUX:::                 - Features of linux 
+1! Open SOURCE							    Multiuser capability
+2! Security									Multitasking
+3! FREE										Portability
+4! lightweight								Security
+5! stability								GUI
+6! performance								Application support
+7! flexibility								File system
+8! High Performance							Open source
+9! Software Updates							licencing freedom
+10! distributions							Huge system	
+11! community support						monitory cost
+12! privacy									customized
+13! networking
+14! compatability
+15! installation
+16! multitasking
+_______________________________________________________________________________________________________________________________________________
+
+LINUX USED WAYS:::: EMBEDDED SYSTEM, ANDROIdS, NASA, GAMING, SUPER COMPUTERS, SERVERS.
+
+______________________________________________________________________________________________________________________________________________
+
+::: Linux basic Commands
+	- man (manual for commands)
+	- whatis (one line manual page description)
+    - cat (create & append file)
+    - touch (create blank file-- intention is updating timestamp)
+    - nano (create & edit file)
+    - vi/vim (create & edit file)
+		i to start typing
+		:wq to exit (shift +zz)
+    - ls (list) (-a, -la)
+		-a for listing hidden files
+		-l for list format
+		-t order by time
+		-f distinguish between regular files and directories
+    - cd (change directory)
+    - pwd (print working directory)
+    - mkdir (create directory, multiple)
+		-p for creating multiple nested directories
+    - cp (copy)
+		-r for recursive( cpay a directory)
+    - mv (move)
+    - mv (rename)
+    - rm (remove file)
+		-r for recursive
+		-f force removal
+    - tree (see in tree structure)
+    - rm -rf(remove directory & recursive)
+    - grep (pick & print)
+    - less (see output)
+    - head (see top 10 lines)
+    - tail (see last 10 lines)
+    - sort (display in Alphabetic/Numeric order)
+    - User
+    - Group
+    - Soft Link (shortcut)
+    - Hard Link (backup)
+    - /tar (to pack)
+    - gz (to compress)
+    - yum (to install)
+    - wget (to download)
+    - File/Directory Permissions:
+    - chmod (permissions)
+    - chown (owner)
+    - chgrp (group)
+    - hostname (to see hostname)
+    - ifconfig (to get ip address)
+    - cat /etc/*rele* (to get os version)
+    - apt get install httpd (to install package)
+    - yum update httpd (to upgrade package)
+    - yum remove httpd (to uninstall package)
+    - yum list installed (to see installed packages)
+    - service httpd status (to see status)
+    - service httpd start (to start service)
+    - service httpd reload (to restart service)
+    - service httpd restart (to restart service)
+    - chkconfig httpd on (to start service permanently)
+    - chkconfig httpd off (to stop service permanently)
+    - Redirection (redirecting output)
+    - which (to see package installed or not)
+    - sudo (to get root privileges)
+    - whoami (to see user)
+    - find -type f (to see all files in current directory)
+    - find -type d (to see all directories in current directory)
+    - find / -type f (to see all files under top level root directory)
+    - find / -type d (to see all directories under top level root directory)
+    - find / -type f -name <file_name> (to search specific file under top level root directory)
+    - find / -type d -name <dir_name> (to search specific dir under top level root directory)
+
+::: Advanced
+    
+    - AWK,GREP
+    
+    - netstat -a
+
+--------------------------------------------------------------------------------------------
+	Linux
+	
+	:::FILE HIREARCHY STRUCTURE:::
+	/home
+	/bin
+	/sbin
+	/mnt
+	/opt
+	/usr
+	/proc
+	/tmp
+	
+	:::NAVIGATION:::
+	1- ~ "TILT OPTION"
+	2- COMMANDS--> pwd , cd
+	
+	relative vs absolute paths
+	
+	:::FILES:::
+	
+	FILE TYPES : BLOCKED
+				 SOCKET
+				 DIRECTORY
+				 LINK
+				 REGULAR
+				 
+	basic file COMMANDS: rm
+			  ls
+			  cat
+			  mv
+			  rmdir
+			  touch
+			  cp
+			  mkdir
+			  
