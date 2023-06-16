@@ -1,0 +1,103 @@
+MAVEN::: Maven is a popular open-source build tool developed by the Apache Group
+		 to build, publish, and deploy several projects at once for better project management.
+		 The tool provides allows developers to build and document the lifecycle framework.
+
+	Maven is a tool that is used to compile, validate codes, and analyse the testcases in the code.
+	Manages the building, reporting and documentation from source code management(SCM)
+	Maven projects are configured through Project Object Model (POM)
+	pom.xml file contains documentation for all of the objects, properties, methods, and events.
+	
+	capable of: 
+	project is centralized
+	build process is managed
+	document the software,project
+	source code is compiled, packed, test, and distributed.
+	deployed artifacts can be generated from the source code.
+	report is created, website is generated for the project.
+	
+objectives :::
+	01 make the build process easy
+	02 provide uniform build system
+	03 gives quality project information
+	04 provides guidelines for best practices development
+	05 allow transperent migration to new features.
+		
+MAVEN Build Lifecycle:::
+	build is run using predefined and ordered set of steps .
+	the tasks performed in build run are determined by the configuration in the project file.
+	maven relies on build lifecycle to define, build, distrubuting artifacts (.jar, .war)files
+	There are three built-in build lifecycles: default, clean and site.
+	DEFAULT: The default lifecycle handles your project deployment,
+	CLEAN :  The clean lifecycle handles project cleaning, 
+	SITE:    The site lifecycle handles the creation of your project's web site.
+	
+	
+MAVEN ARTIFACTS:::
+	AN artifact is a file resulting from packaging a project
+	Can be a .jar, .war, .xml, .ear, files (example)
+	Artifcats are deployed in repositories, so they can be used, as dependencies, by other projects
+	ARTIFACTS ARE IDENTIFIED BY 3 CMPONENTS
+	GROUP ID -->
+	ARTIFACT ID -->
+	VERSION --> ARTIFACT COORDINATES (ALSO CALLED AS)
+	
+MAVEN REPOSITORIES:::
+		Maven repository stores all the versions of all the dependencies
+		their are 3 types of maven repository
+		1) local: located in the developers machine
+		2) central: location of repo:  maven repo website.... (when build job is run first finds in local repo if not their it will download from central repo.
+		3) remote: objects and modules which are specific to organisation, for which remote repo are created.
+		
+POM PROJECT OBJECT MODULE::
+	POM.XML file located at root of the project.
+	pom file includes configuation of your project.
+		-> info about the projects.
+		-> config detalis to build the project.
+		-> source dir, target dir... defaults values of projects.
+		-> dependencies of the project.
+		-> configuration about plugis and goals.
+		-> used repositories.
+
+MAVEN THROUGH TERMINAL::
+
+After installing the maven, check its version::
+--> $mvn -version
+to create a project using maven:
+--> $mvn archetype:generate -DgrouId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetyper-quickstart -DinteractiveMode=false
+	the generate goal will create a directory having the same name given as the artifct id.
+build maven project:
+--> $mvn package
+newly compiled and build project can be tested:
+--> $java -cp target/muapp-1.0 proj_name.jar com.mycomoany.app.App
+	this command will print the output of the project.
+	
+	
+	
+MAVEN LIFECYCLE PHASES:
+
+	VALIDATE:	CHECK PROJECT IS CORRECT, AND HAVE ALL NECESSARY INFO.
+	COMPILE: 	COMPILE THE SOURCE CODE OF THE PROJECT
+	TEST: 		TEST THE COMPILE SOURCE CODE USING A UNIT TESTING FRAMEWORK.
+	PACKAGE: 	TAKE COMPILED CODE AND PACKAGE IT IN ITS DISTRIBUTABLE FORMAT .jar, .war, .xml, .ear, files (example)
+	INTEGRATION-TEST: PROCESS AND DEPLOY THE PACKAGE INT O ENVIRONMENT WHERE INTEGRATION-TEST RUNS
+	VERFIY: 	RUN CHECKS TO VERIFY THE PACKAGE IS VALID AND MEETS QUALITY CRITERIA.
+	INSTALL: 	INSTALL THE PACKAGE IN LOCAL REPOSITORY. FOR USE AS DEPENDENCY.
+	DEPLOY: 	DUMP IN AN INTEGRATION OR RELEASE ENVIRONMENT, 
+				COPIES THE FINAL PACKAGE TO THE REMOTE REPOSITORY FOR SHARING.
+			
+			
+	
+
+============================================================================================================================================
+
+::: Create a maven project to compile a project from github repository :::
+
+OPEN JENKINS ( IP ADDRESS:PORT NUMBER) --> LOGIN TO JENKINS WEB-PAGE --> CLICK ON NEW ITEM (PROJECT/JOB/ITEM)
+			 (198.198.2.3:8080)EXAMPLE
+Step 1: Create a maven project using Jenkins.
+Step 2: Open the Jenkins dashboard to view your project.
+Step 3: Go to manage Jenkins --> and then on Global Tool Configuration.
+Step 4: Install the Maven plugin with the latest version available in the drop-down menu of Apache.
+Now Jenkins will install the maven automatically.
+Step 5: Provide the repository path to your project, which is to be built. (PATH OF PROJECT REPO (GITHUB REPOSITORY LINK ADDRESS)
+Step 6: Go to the build and check the console output of your project.

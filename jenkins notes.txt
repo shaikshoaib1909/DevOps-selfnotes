@@ -1,0 +1,734 @@
+TRADITIONAL INTEGRATION:
+==: TRADITIONAL INTEGRATION --- (MANUALLY INTEGRATING THE BUILDS WHEN EVER THE SOURCE CODE IS READY FOR BUILD)
+	Greate time gap.
+	relatively great risk or change in conflicts.
+
+problems with traditional integration
+--> difficult to implement all details that have chnaged.
+--> difficult to get latest version of the code early
+--> difficult to manage all the chnages with the changing API.
+--> difficult to manage the entire subsystem of application that behave differently
+--> difficult to rewrite the whole code.
+
+solution:::::-----> continuous integration.
+
+	step 1--> split the entire chunk of codes in to segments
+	step 2--> keep small segments of manageable code.
+	step 3--> integrate the segmented code, multiples times a day.
+	step 4--> adopt a continuous integration methodology to coordinate with your team.
+	
+	
+
+:::: CONTINUOUS INTEGRATION :::: It is the process of automating the building and testing of code, each time one of the team member commits changes to version control.
+		Continuous Integration is a development practice in which the developers are required to commit changes to the source code in a shared repository several times a day or more frequently. 
+		Every commit made in the repository is then built. This allows the teams to detect the problems early.
+		   
+		development->(commit)-->source control->(initare ci process)--> build-> (test)--> testing-> (reporting)--> loop back|
+		^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<--------------------|
+		
+	 
+			
+			
+			
+IMPORTANCE OF CI - CONTINUOUS INTEGRATION:
+--> IMPROVES QUALITY ---> IMPROVES THE QUALITY BY RUNNING MULTIPLE UNIT TESTS AND ANALYSING STATIC CODE
+--> INCREASES PRODUCTIVITY --> AUTOMATING BUILD OF CODE SAVES A LOT OF TIME.
+--> REDUCES RISK --> ELIMINATE THE RISK OF POTENTIAL HUMAN ERRORS BY AUTOMATING TEST.
+
+
+::::: POPULAR CONTINUOUS INTEGRATION TOOLS :::::
+
+---> GITLAB CI 
+---> CODE SHIP
+---> BAMBOO
+---> TRAVIS CI
+---> JENKINS
+---> TEAMCITY
+
+
+
+::::: JENKINS  :::::
+	
+::::  Jenkins For Continuous Integration  ::::
+	Jenkins is an open-source automation tool written in java with plugins built for continuous integration.
+	Jenkins used to integrate various devops stages. 
+	A continuous integration server which manages and control processes such as plan, code, buld, test, deploy, operate, and monitor in devops environment.
+	Jenkins is used to build and test your software projects continuously making it easier for developers to integrate changes to the project,
+	  and users to obtain a fresh build.
+	  
+	Jenkins achieves Continuous Integration with the help of plugins.--> Plugins allow the integration of Various DevOps stages.
+	
+	For example: If you want to integrate a tool, you need to install the plugins for that tool, like --> Git, Maven 2 project, Amazon EC2, HTML publisher etc.
+	
+
+	USED MOSTLY BECAUSE:::
+	
+	--> OPEN SOURCE
+	--> GOOD PLUGIN SUPPORT
+	--> GOOD COMMUNITY SUPPORT
+	--> FAST AND RELIABLE
+	--> GOOD OS SUPPORT
+	--> SCRIPTED BUILDS
+	
+    FEATURES:::
+	--> EASY INSTALLATION PROCESS
+	--> UPGRADES ARE EASILY AVAILABLE
+	--> PROVIDES ADVANCE SECURITY
+	--> LIGHTWEIGHT CONTAINER SUPPORT
+	--> OPTIMIZED PERFORMANCE
+	--> DISTRIBUTED TEAM MANAGEMENT
+
+
+C.I - JENKINS - C.I ---->>>>
+
+
+        build and test results are fedback to developer's---<<<<<<<---|
+																	  |
+		developer1
+		developer2		<--> github repository	<--> 	jenkins 			<--> 		selenium 			<--> 	Production server
+		developer3			 (remote repo)		    (periodically checks		( jenkins deploy the build 				(jenkins then deploy application on production server)
+													SHARED REPO, CHECK-IN 		 application on test server)
+													IS PULLED AND THEN BUILD)
+													
+	--> First, developer commits the code to the source code repository. 
+		Meanwhile, the Jenkins server checks the repository at regular intervals for changes.
+	--> Soon after a commit occurs, --> Jenkins server detects the changes in the source code repository. 
+		Jenkins will pull those changes and will start new build.
+	--> If the build fails, then the concerned team/developer will be notified.
+	--> If built is successful, then Jenkins deploys the built in the test server.
+	--> After testing, Jenkins generates a feedback and then notifies the developers about the build and test results.
+It will continue check the  source code repository for changes and the whole process keeps on repeating.
+
+
+:::::	 Jenkins Installation 	:::::
+
+--> Install Java Version 8 – (Jenkins is Java based application, so Java is a must)
+--> Install Apache Tomcat Version 9 – (Tomcat is required to deploy Jenkins war file)
+--> Download Jenkins war File – (This war is required to install Jenkins.)
+--> Deploy Jenkins war File – (Jenkins war file needs to be deployed using Tomcat to run Jenkins.)
+--> Install Suggested Plugins – (Install a list of plugins suggested by Jenkins.)
+
+
+step 1: To install Java version 8 execute the below command:
+
+		sudo yum install java-1.8.0-openjdk
+		
+step 2: wget to download the Tar file for Tomcat 9 using the below command:
+		sudo yum install wget
+		wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M10/bin/apache-tomcat-9.0.0.M10.tar.gz
+		
+step 3: extract the contents from downloaded Tomcat 9 tar file.
+		tar xzf apache-tomat-9.0.0.M10.tar.gz
+		
+step 4: move this extracted file to a new directory Tomcat9
+		mv apache-tomcat-9.0.0.M10 tomcat9
+
+step 5: provide a username and password for Apache Tomcat
+		gedit /home/edureka/tomcat9/conf/tomcat-users.xml
+		( delete the content of tomcat-users.xml and paste the below commands)
+		 
+		<?xml version='1.0' encoding='utf-8'?>
+		<tomcat-users>
+			<role rolename="manager-gui"/>
+			<role rolename="manager-script"/>
+			<role rolename="manager-jmx"/>
+			<role rolename="manager-jmx"/>
+			<role rolename="admin-gui"/>
+			<role rolename="admin-script"/>
+			<user username="userjenkins" password="userjenkins" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+		</tomcat-users>
+		 I have defined several roles and for all these roles I have given one single username and password i.e.userjenkins.
+		 save the file :wq 
+		 
+		change the directory path-->  cd tomcat9
+		
+step 6: To start Tomcat use the below command:
+
+		./bin/startup.sh
+		
+		open your browser and access localhost:8080 to confirm that Tomcat is up and running.
+
+step 7: Download Jenkins war File using wget command
+
+		wget http://updates.jenkins-ci.org/download/war/2.7.3/jenkins.war
+		
+		
+step 8: Deploy Jenkins war File 
+		open your browser and access localhost:8080 --> Now click on the Manager App.
+		it will ask for username and password. enter ---> userjenkins....
+		you will be directed to Tomcat web application manager page. scroll down see option for Deploy. 
+		give the context path, i.e. /jenkins and directory URL, i.e. 
+		location of the Jenkins war file in your system in my case it is /home/shoaib/jenkins.war ,  finally click on Deploy.
+		
+		Now I will click on “/jenkins” on Manager App
+		
+step 9: directed to Unlock Jenkins page.---> initial password.
+        cd /home/shoaib/.jenkins/secrets/initialAdminPassword
+		cat <paste the location that you have copied>
+		copy and paste it inweb jenkins page.
+
+step 10: Now install plugins.
+		 select --. install suggested plugins.
+		 
+		 
+step 11: Create First Admin User.
+		 username, password, full name, email.
+		 save --> direct to jenkins login page login with the credentials.
+		 
+	successfully installed jenkins and logged in to jenkins, now jenkins is ready for ci/cd.
+	
+	
+===================================================================================================================================
+
+	CODE COMMIT <<<<->>>> GIT <<<<->>>> COMMIT <<<<->>>> BUILD <<<<->>>> TEST <<<<->>>> STAGE <<<<->>>> DEPLOY DEV/QA/UAT ----> PRODUCTION
+					jenkins role plays here	-->--------------------> ci/cd ------------>------------------->
+					
+					
+Jenkins Architecture:::
+					
+	--> source control management === >>> GIT
+	
+	--> Jenkins Operation === >>> jenkins
+	
+	--> Build,Test, Deploy === >>> build+unit test - function test - deploy
+	
+	--> Condition Check === >>> is branch test, release or production! ?
+	
+	--> Deployed for Testing === >>> test environment
+	
+	--> Deployed for Release === >>> release environment
+	
+	--> Deployed for Production === >>> production environment
+					
+	
+====================================================================================================================================
+
+PLUGIN MANAGEMENT IN JENKINS
+Jenkins is used to integrate all DevOps stages with the help of plugins.
+Plugins are the primary means of enhancing the functionality of a Jenkins environment to suit organization- or user-specific needs.
+There are over a thousand different plugins which can be installed on a Jenkins controller and to integrate various build tools.
+Commonly used Jenkins plugins are Git, Amazon EC2, Maven 2 project, HTML publisher etc.
+
+Manage jenkins--> plugins tab--> tabs we have for plugins.
+
+UPDATE TAB --->>> Shows updates to plugins already installed
+	
+AVAILABLE TAB --->>> Shows plugins that sre available for installation
+
+INSTALLED TAB --->>> Shows plugins installed that have no updated
+
+ADVANCE TAB --->>> lists configuration of http proxy, allow manual upload of plugins and url of plugin site.
+
+======================================================================================================================================
+
+JENKINS PROJECTS TYPES:
+
+FREE STYLE PROJECT --> Central feature of jenkins, will build project by combining any scm with any build system.
+
+PIPELINE --> Building pipelines, organizing complex activities that do not easily fit in free style.
+
+MULTI- CONFIGURATION PROJECT --> Suitable for projects with large number of different configurations, eg: testing on multiple environment,platform specific builds..
+
+FOLDER --> Creates a container and stores nested items in it. grouping things togeather.
+
+GITHUB ORGANIZATION --> Scans a github organization for all maching repositories
+
+MULTIBRANCH PIPELINE --> Creates a set of pipeline projects according to detected branches in one scm repositories
+
+=======================================================================================================================================
+
+SECURING JENKINS :: CONFIGURE GLOBAL SECURITY 
+
+--> ONE CAN MANAGE SECURITY LEVEL IN JENKINS ENVIRONMENT AND PROJECTS THROUGH JENKINS SECURITY.
+
+Configure global security---> (next) authorization
+
+authorization
+
+options 1 ---> Any one can do anything. (least secure setup, allows anyone to perform any operation on jenkins server) best to avoid.
+
+options 2 ---> legacy mode.(this authorization uses exisitng projects)
+
+options 3 ---> logged in user can do anything. ( users who logged in can perform any operation on jenkins server)
+
+options 4 ---> matrix based security. ( best practice among different modes of authorization)
+
+options 5 ---> project based matrix authorization strategy .(helps in managing the user access for various task with respect to projects- users authorization with respect to the allocated projects)
+
+==========================================================================================================================================
+
+NOTIFICANTIONS :: NOTIFICATION IN JENKINS 
+
+JENKINS->PLUGINS MANAGER->INSTALLED-> EMAIL EXTENSION PLUGIN.
+
+jenkisn has the email extension plugin which enables jenkins to send the email to the developer to inform about the job.
+
+--> EMAIL NOTIFICANTION SETUP 
+		1- Smtp server needs to be mentioned.
+		2- email address & password of the email.
+		3- smtp port numer for gmail server is 465
+		4- send the mail in plain text
+		5- default subject mail
+		6- format in which jenkins will send mail
+		
+--> POST-BUILD ACTIONS
+		EMAIL NOTIFICANTION
+		--> RECEPIENTS ---> (MENTIONED EMAIL ID'S RECEIVES THE MAIL )
+		--> OPTION 1- SNED EMAIL FOR EVERY UNSTABLE BUILD.
+		--> OPTION 2- SEND SEPERATE EMAIL TO INDIVIDUALS WHO BROKE THE BUILD.
+		
+===================================================================================================================================================
+
+JENKINS MASTER - SLAVE ARCHITECTURE
+
+JENKINS MASTER:::
+	
+	: JENKINS MASTER performs basic installation and handles task related to builds and configuration
+	: They schedules builds
+	: They monitor slaves
+	: Records and presents the builds results
+	
+JENKINS SLAVE:::
+	: JENKINS SLAVE is Set up to offload builds from master and distribute the workload among slave nodes.
+	: They lsiten to master's requests
+	: Slaves can run on variety of operating systems
+	: They maily execute build jobs which are dispached by jenkins master instance
+	
+	
+JENKINS MASTER WILL DISTRIBUTE ITS WORKLOAD TO SLAVES
+
+							JENKINS MASTER
+			|						|						|
+	JENKINS SLAVE 1			JENKINS SLAVE 2 		JENKINS SLAVE 3
+	
+JENKINS SLAVE ARE GENERALLY REQUIRED TO PROVIDE THE DESIRED ENVIRONMENT. 
+IT WORKS ON BASIS OF REQUESTS RECEIVED FROM JENKINS MASTER.
+
+
+===============================================================================================================
+
+BUILD DELIVERY PIPELINE USING JENKINS
+
+
+BUILD A JOB :::
+SET OF TASKS TO BUILD THE JOB:
+
+01 GITHUB REPOSITORY LINK :Specify the github repo link to pull the code to jenkins.
+02 BUILD TRIGGER :Specify the previous job that triggers the current job.
+03 JOB GOAL :Specify the testing action/goal for each job.
+04 POST BUILD ACTION: Specify the next job/action to be triggered.
+
+CONTINUOUS DELIVERY CD PIPELINE:
+
+CD pipeline includes the following steps.
+
+1) build automation
+2) continuous integration
+3) test automation
+4) deployment automation
+
+
+BUILD PIPELINE PLUGIN INSTALLATION: 
+STEPS TO INSTALL PIPELINE PLUGINS 
+
+1) MANAGE JENKINS -> 2) MANAGE PLUGINS -> 3) SELECT AVAILABLE OPTION -> 4) INSTALL BUILD PIPELINE PLUGIN.
+ 
+ ================================================================================================================
+ 
+ CREATE PIPELINE BUILD VIEW
+ 
+ --> CLICK ON CREATE A PIPELINE VIEW.(ON JOBS PAGE ON TOP LEFT + PLUS ICON)
+ --> CONFIGURE PIPELINE VIEW.(AFTER SETTING THE INITIAL JOB AND CONFIGURING IT ACCORDINGLY, PIPELINE IS READY TO RUN)
+	`: VIEW NAME (NAME OF THE VIEW)
+		BUILD PIPLELINE VIEW -> SHOWS JOB IN BUILD PIPELINE VIEW, COMPLETE PIPELINE OF JOBS.
+		LIST VIEW -> SHOWS ITEMS IN SIMPLE LIST FORMAT)
+		MY VIEW -> VIEWS ALL JOBS OF CURRECT USER HAS ACCESS.
+		
+	 : TRIGGER OPTION
+		BUILD CARDS -STANDARD
+		DISPLAY OPTIONS
+		: NO OF DISPLAY BUILDS 
+		
+
+COMPLETE BUILD PIPELINE :::
+
+BUILD PIPELINE OTPION 
+
+RUN -> HISTORY -> CONFIGURE -> ADD STEP -> DELETE -> MANAGE
+
+PIPELIN NO: --> DEV COMPILE	-->	DEV CODE REVIEW	-->		QA UNIT TEST	--> PACKAGE
+	#14 			JOB				JOB 					JOB				 JOB
+	
+BLOCK COLOUR AND THEIR MEANING WHILE RUNNING A VIEW.
+
+: YELLOW BLOCK -> CURRENT EXECUTING JOB
+: BLUE BLOCK -> JOBS WAITING FOR EXECUTION
+: GREEN BLOCK -> SUCCESSFUL BUILD OF JOB
+: RED BLOCK -> FAILURE OF BUILDING OF JOB
+#####################
+::::::::::::: PIPE LINE AS CODE :::::::::::::::
+#####################
+ pipeline plugin enables user to implement the whole build, test and deploy pipeline in jenkins and store their code.
+ treating the pieline as another piece of code in thier source control repository.
+ Pipeline Project :::		
+ create pipeline scripts : to perform CI/CD 
+		
+	Two types of pipelines :
+			
+			1- Scripted Pipeline  === typical groovy scripts 
+			
+			2- Declarative Pipeline 
+			
+Planning :::
+		
+	Tasks/steps == small unit of work
+			
+	stage === collection of tasks/steps 
+
+	stages === stage === tasks/steps 
+	
+	scm checkout 
+
+-> Developers will do the coding ==> Commit the code in SRC github Repository 
+		
+-> Pipeline ::
+	SCM Checkout stage -- Build & Create Artifacts -- Deploy to higher environments (QA) -- Send Email Notifications
+
+####################
+ BASIC STRUCTURE OF DECLARATIVE PIPELINE NODES:::
+####################
+ 
+NODES-->(NODE WHERE STAGE,DIRECTIVES,OR STEPS SHOULD RUN)
+		A NODE BLOCK IS THE JENKINS AGENT WHEREIN STAGE BOCK,DERECTIVES, AND STEPS SHOULD RUN.
+		syntax:   node('<parameter>'){<constituents>}
+		  
+		  constituents: multiple stage blocks,derectives,or steps.
+		  parameters: any,label.
+		  
+STAGE-->(A COLLECTION OF STEPS AND DIRECTIVES)
+		 A stage block is abundle of closely related steps and directives that have a common objective.
+		 syntax: stage('<parameter>') {<constituents>}
+		 constituents: multiple node blocks,directives, or steps
+		 parameter: a string that is the name of the stage(mandatory)
+		  
+		  
+DIRECTIVES:(NODE WHERE THE STAGE SHOULD RUN)
+			Directives are to suggest the node block,stage block, and steps by providing them with any of the following
+			options,parameters,environment,triggers, tools.
+
+STEPS: fundamental block of pipeline (tells jenkins what to do)
+		step could be: batch script or shell script, or any other executable.
+		
+		various purposes: cloning a repository.
+						  building code.
+						  running tests.
+						  uploading artifacts to repository server.
+						  static code analysis....
+
+
+DECLARATIVE PIPELINE SYNTAX::::
+
+PIPELINE{} BLOCK: DEFINES ALL THE WORK DONE THROUGHOUT THE ENTIRE PIPELINE.
+
+Jenkinsfile(declarative pipeline)
+
+pipeline{
+	agent any
+	stages {
+		stage('build'){
+			steps{
+				//
+			}
+		}
+		stage('test'){
+			steps{
+				//
+			}
+		}
+		stage ('deploy'){
+			steps{
+				//
+			}
+		}
+	}
+}
+==> execute the pipeline or any stages, on any available agent.
+==> define build stage
+==> perform some steps related to build stage
+==> defines test stage
+==> perform some steps related to the test stage.
+==> defines deploy stage
+==> perform some steps related to the deploy stage.
+
+################################
+SCRIPTED PIPELINE SYNTAX :::
+################################
+
+--> In scripted pipeline, the node block does core work for entire pipeline.
+--> work inside a node block does 2 things.
+	1- schedules the steps contained within the block to run when an executor is free on a node.
+	2- create a workspace where work can be done on files checked out from source control.
+	
+	
+Jenkinsfile(scripted pipeline)
+node {
+	stage('build'){
+		//
+	}
+	stage ('test'){
+		//
+	}
+	stage ('deploy'){
+		//
+	}
+}
+================================================================================================
+###############################
+Example:: Declarative Pipeline
+
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "M3"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+    }
+}
+				
+===============================================================================================			
+			
+			
+################################
+Configure Slave Machines :::::
+################################
+	
+	Jenkins_Slave -- VM ---
+	
+		Install Build Tools 
+			Jdk 
+			MAVEN Build Tool
+			'
+	Slave Machines ::
+		
+			User 
+			private & public key 
+			
+		Install all the required tools 
+		Enable Environmental variable 
+			
+	
+example::::
+	
+pipeline {
+
+    agent {
+        label 'slave1'
+    }
+
+    tools 
+    {
+        maven 'Maven-3.8.7'
+    }
+
+    stages {
+        stage('SCM-Checkout') {
+            steps {
+                echo 'Hello World'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+    }
+}		
+			
+			
+###########################################
+How to Deploy artifacts into target server ::: QA 
+###########################################		
+	
+	src Code ----> version controlled using github
+	
+	artifacts  ---> created in Jenkins_Slave Machine 
+	
+	Jenkins_Master :										Scheduling the Jobs 
+		Slave1 -- Java Maven Application -- Build Server 	Build the Application
+	
+	QA-Server -- VM (Linux)			Hosted server			Run the Application
+		Install Application Server (tomcat,nginx)
+			Install Tomcat.
+			
+	Establish Connection to Hosted Servers 
+		SSH
+		
+		Publish Over SSH Plugin :
+	
+	Copy/Deploy the artifacts from Build-Server to QA-Server Through Jenkins(using CI/CD Pipeline)
+	
+	Using SSH connect to QA-Server 
+	
+	Valid User / password / ssh keys 
+	
+	jenkinuser is created with SSH Keys 
+	
+	Copy/Deploy the artifacts from Build-Server to QA-Server Through Jenkins(using CI/CD Pipeline)
+	   i.e, from: 
+		target/mvn-hello-world.war					====>>>   /opt/tomcat/webapps
+		
+		cp target/mvn-hello-world.war /opt/tomcat/webapps
+		
+	Install Publish Over SSH Plugin ::
+	
+	Configure Plugin!
+		Goto Manage Jenkins --> configure system --> publish over ssh 
+		
+	Established Connection to QA-Server from Jenkins Master 
+	
+pipeline {
+    agent {
+        label 'slave1'
+    }
+    tools 
+    {
+        maven 'Maven-3.8.7'
+    }
+    stages {
+        stage('SCM-Checkout') {
+            steps {
+                echo 'Hello World'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        stage('Deploy to QA Server') {
+            steps {
+                // Run Maven on a Unix agent.
+				script {
+					sshPublisher(publishers: [sshPublisherDesc(configName: 'QA-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+            }
+			}
+    }
+}	
+	
+	
+	
+	sshPublisher(publishers: [sshPublisherDesc(configName: 'QA-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+	
+	SCM Checkout stage -- Build & Create Artifacts -- Deploy to higher environments (QA) -- Automated Testing in QA 
+	
+#############################################	
+		How to send the Notifications ===> 
+#############################################			
+			Gmail --
+			
+			Email_ID 			
+			App_Token
+
+	Goto Manage Jenkins --> Config system --> Email Notification :
+	
+		SMTP Server : smtp.gmail.com
+		
+		Click on Advanced - Enable Use SMTP Auth
+		
+			Enter ur valid Email
+			Token for password 
+			
+		Enable : Use SSL Option
+
+		SMTP Port : 465
+		
+		Gmail :: 
+		two - way authtication?
+		
+		Enter your mobile :
+		
+		Setup the App Token.
+		
+		Login to Gmail :
+		Goto account setting	
+
+			Security 
+Demo using Pipeline ::
+			
+			SCM Checkout stage -- Build & Create Artifacts -- Deploy to higher environments (QA) -- Send Email Notifications
+			
+#######################			
+		Build Trigger!
+#######################
+			1- Build periodic
+			2- poll SCM
+			3- github webhook
+			
+	Build periodic :::
+				
+				Used to trigger the periodic build
+				
+				Jenkins Job -- to run on daily basis 
+					start all my Non-Prod Servers of a specific application at 9AM on daily basis
+					stop all my Non-Prod Servers of a specific application at 9PM on daily basis
+			
+	Poll SCM :::
+				
+				Used to trigger the periodic build, only if there is any changes in src code repo.
+				Want to trigger a build for every one hour only if there is any commit happened in the src repo
+				
+				
+	Github webhook :::
+	
+				want to trigger a build for every commit happened in the src repo
+				
+				
+
+#########################
+jenkins pipeline example 
+#########################
+
+SCM Checkout --> Build --> Create Artifacts --> Perform Unit Testing --> Sonarqube Analysis --> Check Quality Gates --> Deployed to QA Server
+							EMail					EMail					EMail					EMail					Email
+																	 --> Test Coverage
+						 													EMail
+
+
+Jenkins_Master 
+	Slave1
+	Slave2
+	Slave3
+
+Sonarqube_Server
+QA_Server
+UAT_Server
+PROD_Server
